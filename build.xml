@@ -1,0 +1,23 @@
+<project name="test" default="main">
+	<property name="appdir" value="."/>
+	<property name="repodir" value="./app"/>
+	<property name="repo" value="https://github.com/marabesi/laravel-pagseguro.git" />
+
+	<includepath classpath="tasks" />
+	<taskdef name="myecho" classname="MyEchoTask" />
+
+	<target name="test.myecho">
+		<myecho message="Hello World" />
+	</target>
+
+	<target name="main">
+		<!-- Initialize normal repository -->
+		<gitinit bare="false" gitPath="C:\Progra~1\Git\bin\git.exe" repository="./repos/moduloweb" />
+	</target>
+
+	<target name="clone">
+		<echo msg="Cloning repository ${repo} please wait"/>
+		<gitclone gitPath="C:\Progra~1\Git\bin\git.exe" repository="${repo}" targetPath="${appdir}/repos/app"/>
+	</target>
+
+</project>
